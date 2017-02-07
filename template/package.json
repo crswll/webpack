@@ -13,8 +13,13 @@
     "lint": "eslint --ext .js,.vue src{{#unit}} test/unit/specs{{/unit}}{{#e2e}} test/e2e/specs{{/e2e}}"{{/lint}}
   },
   "dependencies": {
-    "vue": "^2.1.10"{{#router}},
-    "vue-router": "^2.2.0"{{/router}}
+    {{#router}}
+    "vue-router": "^2.2.0",
+    {{/router}}
+    {{#store}}
+    "vuex": "^2.0.0",
+    {{/store}}
+    "vue": "^2.1.10"
   },
   "devDependencies": {
     "autoprefixer": "^6.7.2",
