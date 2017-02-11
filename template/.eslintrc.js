@@ -33,6 +33,7 @@ module.exports = {
   // add your custom rules here
   'rules': {
     {{#if_eq lintConfig "standard"}}
+    'comma-dangle': [2, 'always-multiline'],
     // allow paren-less arrow functions
     'arrow-parens': 0,
     // allow async-await
