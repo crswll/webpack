@@ -1,10 +1,12 @@
-import Vue from 'vue'{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
-import Vuex from 'vuex'{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
+// http://vuex.vuejs.org/
 
-Vue.use(Vuex){{#if_eq lintConfig "airbnb"}};{{/if_eq}}
+import Vue from 'vue'
+import Vuex from 'vuex'
 
-const debug = process.env.NODE_ENV !== 'production'{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
+Vue.use(Vuex)
+
+const debug = process.env.NODE_ENV !== 'production'
 
 export default new Vuex.Store({
-  strict: debug{{#if_eq lintConfig "airbnb"}},{{/if_eq}}
-}){{#if_eq lintConfig "airbnb"}};{{/if_eq}}
+  strict: debug,
+})

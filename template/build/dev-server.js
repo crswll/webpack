@@ -10,9 +10,9 @@ var path = require('path')
 var express = require('express')
 var webpack = require('webpack')
 var proxyMiddleware = require('http-proxy-middleware')
-var webpackConfig = {{#if_or unit e2e}}process.env.NODE_ENV === 'testing'
+var webpackConfig = process.env.NODE_ENV === 'testing'
   ? require('./webpack.prod.conf')
-  : {{/if_or}}require('./webpack.dev.conf')
+  : require('./webpack.dev.conf')
 
 // default port where dev server listens for incoming traffic
 var port = process.env.PORT || config.dev.port
@@ -45,7 +45,9 @@ compiler.plugin('compilation', function (compilation) {
 Object.keys(proxyTable).forEach(function (context) {
   var options = proxyTable[context]
   if (typeof options === 'string') {
-    options = { target: options }
+    options = {
+      target: options,
+    }
   }
   app.use(proxyMiddleware(options.filter || context, options))
 })
@@ -87,5 +89,5 @@ module.exports = {
   ready: readyPromise,
   close: () => {
     server.close()
-  }
+  },
 }
